@@ -1,18 +1,18 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Card from "./components/Card";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import PostBlog from "./pages/PostBlog"
 
 function App() {
   return (
     <>
     <Navbar/>
       <div className="flex p-5 flex-wrap justify-content-center">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/post" element={<PostBlog/>}></Route>
+        </Routes>
       </div>
     </>
   );
