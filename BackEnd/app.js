@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1/blogs/:id/commends", commendRoutes);
 app.use("/api/v1/blogs", blogDetailRoutes);
+app.use("/api/v1/blogs", router);
 
 //Create Server
 app.listen(3000, () => {
