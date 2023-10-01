@@ -36,7 +36,7 @@ route.put("/api/v1/blogs/:blog_id", (req, res) => {
 route.delete("/api/v1/blogs/:blog_id", (req, res) => {
   const blogId = Number.parseInt(req.params.blog_id);
 
-  const index = data.findIndex((blog) => blog.id === blogId);
+  const index = data.find((blog) => blog.id === blogId);
 
   if (index === -1) {
     return res.status(404).json({ message: "Blog not found" });
