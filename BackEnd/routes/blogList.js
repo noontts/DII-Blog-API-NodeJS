@@ -1,5 +1,5 @@
 const express = require("express");
-const { data } = require("../data/data");
+const { data } = require("../data/blog_data");
 
 const router = express.Router();
 
@@ -7,14 +7,14 @@ router.get("/", (req, res) => {
   res.json(data);
 });
 
-router.get("/:id", (req, res) => {
-  const id = Number.parseInt(req.params.id);
-  const blog = data.find((blog) => blog.blog_id === id);
-  res.json(blog);
-});
+// router.get("/:id", (req, res) => {
+//   const id = Number.parseInt(req.params.id);
+//   const blogIndex = data.findIndex((blog) => blog.blog_id === id);
+//   res.json(data[blogIndex]);
+// });
 
 router.post("/", (req, res) => {
-  const { title, content, type, category, comments } = req.body;
+  const { title, content, type, category } = req.body;
   const newBlog = {
     blog_id: data.length + 1,
     date: new Date().toLocaleDateString(),
@@ -42,17 +42,3 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-
-// router.put('/:id', (req, res) => {
-//   const { name, imageURL, type } = req.body;
-//   const id = Number.parseInt(req.params.id);
-//   const updateBlog = data.find((
-//         blog) => blog.id === id
-//     );
-//     updateBlog.name = name;
-//     updateBlog.imageURL = imageURL;
-//     updateBlog.type = type;
-
-//   res.json(updateBlog);
-// });
-

@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { data } = require("../data");
+const { data } = require("../data/blog_data");
 
 const route = express.Router();
 

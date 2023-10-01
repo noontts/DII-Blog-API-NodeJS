@@ -12,7 +12,7 @@ router.get('/:id/comments', (req,res) =>{
 
 router.post('/:id/comments' , (req,res)=>{
     const id = Number.parseInt(req.params.id);
-    const blog = data.find((blog)=>blog.blog_id === id);
+    const blogIndex = data.findIndex((blog)=>blog.blog_id === id);
     const {comment_content, date, reply_comment} = req.body;
     const newComment = {
         comment_id : ++currentCommentId,
@@ -20,7 +20,9 @@ router.post('/:id/comments' , (req,res)=>{
         date,
         reply_comment
     }
-    blog.comments.push(newComment);
+    data[blogIndex].comments.push(newComment);
+
+    console.log(data[blogIndex]);
     res.json(newComment);
 })
 
