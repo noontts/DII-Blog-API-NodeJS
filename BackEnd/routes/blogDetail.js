@@ -5,7 +5,7 @@ const { data } = require("../data");
 const route = express.Router();
 
 // GET Blog by Id
-app.get("/api/v1/blogs/:blog_id", (req, res) => {
+route.get("/api/v1/blogs/:blog_id", (req, res) => {
   const blogId = Number.parseInt(req.params.blog_id);
   const blog = data.find((blog) => blog.id === blogId);
 
@@ -17,7 +17,7 @@ app.get("/api/v1/blogs/:blog_id", (req, res) => {
 });
 
 // PUT Blog by Id
-app.put("/api/v1/blogs/:blog_id", (req, res) => {
+route.put("/api/v1/blogs/:blog_id", (req, res) => {
   const blogId = Number.parseInt(req.params.blog_id);
   const updatedBlog = req.body;
 
@@ -33,7 +33,7 @@ app.put("/api/v1/blogs/:blog_id", (req, res) => {
 });
 
 //DELETE Blog by Id
-app.delete("/api/v1/blogs/:blog_id", (req, res) => {
+route.delete("/api/v1/blogs/:blog_id", (req, res) => {
   const blogId = Number.parseInt(req.params.blog_id);
 
   const index = data.findIndex((blog) => blog.id === blogId);
