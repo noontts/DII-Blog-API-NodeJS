@@ -1,13 +1,10 @@
 const express = require("express");
+const router = require("./routes/blogList");
 const app = express();
 
-const router = require('./routes/products');
-app.use('/api/products', router);
-
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use("/api/v1/blogs", router);
 
-
-app.listen(3000, () => {
-  console.log(`Listening on port 3000`);
+app.listen(3001, () => {
+  console.log("Server is running on port 3001");
 });
