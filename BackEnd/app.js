@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1/blogs/:id/commends", commendRoutes);
-app.use("/blogDetill", blogDetailRoutes);
+app.use("/blogDetail", blogDetailRoutes);
 
 //Create Server
 app.listen(3000, () => {
