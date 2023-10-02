@@ -1,25 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Card = ({ CardObj }) => {
   return (
     <>
-      <div className="w-96 rounded-2 m-4">
+      <div className="flex flex-column align-items-center justify-content-evenly w-96 rounded-2 m-4 border-solid border-1 p-4 shadow-md hover:shadow-lg">
         <img
-          src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+          src={`http://localhost:3000/api/v1/blogs/images/7`}
           alt=""
           className="rounded-2 object-cover"
         />
         <div className="font-bold py-2">
-          <Link to={`/blogs/${CardObj.blog_id}`}>
-            {CardObj.title}
-          </Link>
+          <Link to={`/blogs/${CardObj.blog_id}`}>{CardObj.title}</Link>
         </div>
         <div className="flex align-items-center justify-content-center py-4 text-gray-400">
-            {CardObj.date}
+          {CardObj.date}
         </div>
-        <p className="line-clamp-5">
-          {CardObj.content}
-        </p>
+        <p className="line-clamp-5">{CardObj.content}</p>
       </div>
     </>
   );

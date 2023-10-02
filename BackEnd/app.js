@@ -4,6 +4,7 @@ const cors = require('cors');
 const commendRoutes = require("./routes/comments");
 const blogDetailRoutes = require("./routes/blogDetail");
 const blogRoutes = require("./routes/blogList");
+const imagesRoutes = require("./routes/images");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/blogs", commendRoutes);
 app.use("/api/v1/blogs", blogDetailRoutes);
 app.use("/api/v1/blogs", blogRoutes);
+app.use("/api/v1/blogs", imagesRoutes);
 
 //Create Server
 app.listen(3000, () => {
