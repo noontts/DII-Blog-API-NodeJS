@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Card = ({ CardObj }) => {
   return (
     <>
@@ -8,21 +10,15 @@ const Card = ({ CardObj }) => {
           className="rounded-2 object-cover"
         />
         <div className="font-bold py-2">
-          <a href="#">
-            Title Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry.
-          </a>
+          <Link to={`/blogs/${CardObj.blog_id}`}>
+            {CardObj.title}
+          </Link>
         </div>
         <div className="flex align-items-center justify-content-center py-4 text-gray-400">
-          Mon May 30 2022
+            {CardObj.date}
         </div>
         <p className="line-clamp-5">
-          Lorem Ipsum has been the industry standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged. It was popularised in the 1960s with the release of
-          Letraset sheets containing...
+          {CardObj.content}
         </p>
       </div>
     </>

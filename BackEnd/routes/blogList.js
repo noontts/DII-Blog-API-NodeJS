@@ -14,11 +14,11 @@ router.get("/", (req, res) => {
 // });
 
 router.post("/", (req, res) => {
-  const { title, content, type, category } = req.body;
+  const { title ,author, content, type, category } = req.body;
   const newBlog = {
     blog_id: data.length + 1,
     date: new Date().toLocaleDateString(),
-    author: "Your Author Name",
+    author,
     title,
     content,
     type,

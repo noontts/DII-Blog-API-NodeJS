@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 
 const commendRoutes = require("./routes/comments");
 const blogDetailRoutes = require("./routes/blogDetail");
@@ -6,6 +7,7 @@ const blogRoutes = require("./routes/blogList");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
