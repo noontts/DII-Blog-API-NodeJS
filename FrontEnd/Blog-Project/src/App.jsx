@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <Navbar/>
-      <div className="flex p-5 flex-wrap justify-content-center">
+      <div className="flex p-5 flex-wrap justify-center">
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/post" element={<PostBlog/>}></Route>

@@ -19,9 +19,9 @@ const Home = () => {
   }
 
   return (
-    <div className="flex flex-column align-items-center">
+    <div className="flex flex-col items-center">
       <div>Home</div>
-      <div className="flex flex-row flex-wrap justify-content-center">
+      <div className="flex flex-row flex-wrap justify-center">
         {blogs.map((blog, index) => (
           <Card key={index} CardObj={blog} />
         ))}

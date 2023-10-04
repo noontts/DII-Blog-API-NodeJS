@@ -17,7 +17,7 @@ const BlogDetail = () => {
   }, [id.id]);
 
   return (
-    <div className="flex flex-column justify-content-center align-items-center p-3">
+    <div className="flex flex-col justify-center items-center p-3">
       <div className="text-4xl font-medium p-3">{blogDetail.title}</div>
       <div className="flex justify-start w-full p-3">
         <div>{blogDetail.author}</div>
