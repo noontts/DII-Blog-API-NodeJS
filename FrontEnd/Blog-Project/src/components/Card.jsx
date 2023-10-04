@@ -8,6 +8,7 @@ const Card = ({ CardObj }) => {
           src={`http://localhost:3000/api/v1/blogs/images/7`}
           alt=""
           className="rounded-2 object-cover"
+          loading="lazy"
         />
         <div className="font-bold py-2">
           <Link to={`/blogs/${CardObj.blog_id}`}>{CardObj.title}</Link>

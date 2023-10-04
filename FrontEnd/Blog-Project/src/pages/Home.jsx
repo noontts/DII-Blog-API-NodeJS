@@ -12,7 +12,7 @@ const Home = () => {
     };
 
     fetchBlogs();
-  }, [blogs]);
+  }, []);
 
   if (blogs.length === 0) {
     return <div>Loading...</div>;
