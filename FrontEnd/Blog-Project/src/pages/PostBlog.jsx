@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { postBlog } from "../services/blogs"
 
 const PostBlog = () => {
   const [title, setTitle] = useState("");
@@ -7,8 +8,13 @@ const PostBlog = () => {
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeContent = (e) => setContent(e.target.value);
 
-  const submitPost = (e) => {
+  const submitPost = async(e) => {
     e.preventDefault();
+    const data = {
+      title : title,
+      content : content
+    }
+    await postBlog(data);
     setTitle('');
     setContent('');
   };
