@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PostBlog from "./pages/PostBlog";
 import BlogDetail from "./pages/BlogDetail";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/post" element={<PostBlog/>}></Route>
           <Route path="/blogs/:id" element={<BlogDetail/>}></Route>
+          <Route path="/register" element={<Register/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
         </Routes>
       </div>
     </>

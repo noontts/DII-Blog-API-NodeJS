@@ -15,8 +15,8 @@ const Navbar = () => {
         </ul>
 
         <div className="flex justify-center px-5 w-72">
-          <Link className='mx-2 p-2 px-3'>Sign up</Link>
-          <Link className='border-solid border-2 p-2 px-3 rounded shadow-sm'>Login</Link>
+          <Link className='mx-2 p-2 px-3' to={'/register'}>Sign up</Link>
+          <Link className='border-solid border-2 p-2 px-3 rounded shadow-sm' to={'/login'}>Login</Link>
         </div>
     </nav>
   );
