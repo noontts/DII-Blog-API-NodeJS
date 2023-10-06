@@ -6,12 +6,19 @@ const router = express.Router();
 router.get("/", (req, res) => {
   const category = req.query.category;
   const search = req.query.search;
+  const type = req.query.type;
 
   let filtered = data;
 
   if (category) {
     filtered = filtered.filter(
       (blog) => blog.category.toLowerCase() === category.toLowerCase()
+    );
+  }
+
+  if (type) {
+    filtered = filtered.filter(
+      (blog) => blog.type.toLowerCase() === type.toLowerCase()
     );
   }
 
