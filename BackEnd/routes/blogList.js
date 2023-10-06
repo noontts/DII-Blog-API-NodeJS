@@ -5,46 +5,26 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   const category = req.query.category;
-  switch (category) {
-    case "sports":
-      const sport = data.filter((blog) => blog.category === "sports");
-      if (sport) {
-        res.json(sport);
-      } else {
-        res.status(404).json({ message: "Sports not found" });
-      }
-      break;
-      
-    case "technology":
-      const technology = data.filter((blog) => blog.category === "technology");
-      if (technology) {
-        res.json(technology);
-      } else {
-        res.status(404).json({ message: "technology not found" });
-      }
-      break;
+  const search = req.query.search;
 
-    case "fashion":
-      const fashion = data.filter((blog) => blog.category === "fashion");
-      if (fashion) {
-        res.json(fashion);
-      } else {
-        res.status(404).json({ message: "fashion not found" });
-      }
-      break;
+  let filtered = data;
 
-    case "food":
-      const food = data.filter((blog) => blog.category === "food");
-      if (food) {
-        res.json(food);
-      } else {
-        res.status(404).json({ message: "food not found" });
-      }
-      break;
+  if (category) {
+    filtered = filtered.filter(
+      (blog) => blog.category.toLowerCase() === category.toLowerCase()
+    );
+  }
 
-    default:
-      res.json(data);
-      break;
+  if (search) {
+    filtered = filtered.filter(
+      (blog) => blog.title.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  if (filtered.length === 0) {
+    res.status(404).json({ message: "No matching blogs found" });
+  } else {
+    res.json(filtered);
   }
 });
 
@@ -55,7 +35,7 @@ router.get("/", (req, res) => {
 // });
 
 router.post("/", (req, res) => {
-  const { title ,author, content, type, category } = req.body;
+  const { title, author, content, type, category } = req.body;
   const newBlog = {
     blog_id: data.length + 1,
     date: new Date().toLocaleDateString(),
