@@ -1,28 +1,53 @@
 import { useState } from "react";
-import { postBlog } from "../services/blogs"
+import { postBlog, uploadImage } from "../services/blogs";
+import { Navigate, useNavigate } from "react-router-dom"
 
 const PostBlog = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [file, setFile] = useState(null);
 
+  const navigate = useNavigate();
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeContent = (e) => setContent(e.target.value);
 
-  const submitPost = async(e) => {
+  const submitPost = async (e) => {
     e.preventDefault();
-    const data = {
-      title : title,
-      content : content
+    let data = {
+      title: title,
+      content: content,
+      image: "",
+    };
+    if (file) {
+      const imageData = new FormData();
+      const fileName = Date.now();
+      imageData.append("name", fileName);
+      imageData.append("file", file);
+      data.image = fileName;
+
+      try {
+        await uploadImage(imageData);
+      } catch (error) {
+        console.log(error);
+      }
     }
-    await postBlog(data);
-    setTitle('');
-    setContent('');
+    try {
+      await postBlog(data);
+    } catch (error) {
+      console.log(error);
+    }
+    navigate('/');
+
+    setFile(null);
+    setTitle("");
+    setContent("");
   };
 
   return (
     <>
       <div>PostBlog</div>
       <form className="w-100 h-auto" onSubmit={submitPost}>
+        <input type="file" onChange={(e) => setFile(e.target.files[0])}></input>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Title:

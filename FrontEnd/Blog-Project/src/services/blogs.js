@@ -27,6 +27,7 @@ export const postBlog = async (blogs) => {
     content: blogs.content,
     type: "test",
     category: "test",
+    image: blogs.image
   };
 
   await axios
@@ -38,3 +39,12 @@ export const postBlog = async (blogs) => {
       console.error("Error:", error);
     });
 };
+
+export const uploadImage = async(data) =>{
+  try {
+    await axios.post('http://localhost:3000/api/v1/upload',data);
+    console.log('File uploaded!');
+  } catch (error) {
+    console.log(error);      
+  }
+}
