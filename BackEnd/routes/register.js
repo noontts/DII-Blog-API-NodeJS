@@ -24,7 +24,7 @@ router.post("/register", (req, res) => {
   res.json({ message: "User registered successfully", user: newUser });
 });
 
-router.get("/allId", (req, res) => {
+router.get("/allid", (req, res) => {
   res.json(data);
 });
 
