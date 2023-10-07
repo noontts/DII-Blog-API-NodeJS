@@ -1,4 +1,35 @@
+import { useState } from "react"
+import { login } from '../services/blogs';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const onChangeUsername = (e) => setUsername(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
+
+  const loginSubmit = async(e) => {
+    let user = {};
+
+    e.preventDefault();
+    const data = {
+      username : username,
+      password : password,
+    }
+    try {
+      const loginza = await login(data);
+      console.log('Login Complete!', loginza);
+      user = loginza;
+    } catch (error) {
+      console.log(error);
+    }
+    if(user.status === 200){
+      navigate('/')
+    }
+  }
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -9,7 +40,7 @@ const Login = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={loginSubmit}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                 Username
@@ -22,6 +53,8 @@ const Login = () => {
                   autoComplete="username"
                   required
                   className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  onChange={onChangeUsername}
+                  value={username}
                 />
               </div>
             </div>
@@ -45,6 +78,8 @@ const Login = () => {
                   autoComplete="current-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  onChange={onChangePassword}
+                  value={password}
                 />
               </div>
             </div>

@@ -22,7 +22,6 @@ route.put("/:blog_id", (req, res) => {
   const updatedBlog = req.body;
 
   for (let i = 0; i < data.length; i++) {
-    v;
     if (data[i].id === blogId) {
       data[i] = { ...data[i], ...updatedBlog };
       return res.json(data[i]);

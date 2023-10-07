@@ -20,7 +20,7 @@ const PostBlog = () => {
     };
     if (file) {
       const imageData = new FormData();
-      const fileName = Date.now();
+      const fileName = Date.now() + file.name;
       imageData.append("name", fileName);
       imageData.append("file", file);
       data.image = fileName;

@@ -48,3 +48,19 @@ export const uploadImage = async(data) =>{
     console.log(error);      
   }
 }
+
+export const register = async(data)=>{
+  try {
+    await axios.post('http://localhost:3000/api/v1/auth/register', data);
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const login = async(data)=>{
+  try {
+    return await axios.post('http://localhost:3000/api/v1/auth/login' , data);
+  } catch (error) {
+    console.log(error);
+  }
+}
