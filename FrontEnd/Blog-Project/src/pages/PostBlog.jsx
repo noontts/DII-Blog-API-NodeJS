@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postBlog, uploadImage } from "../services/blogs";
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../App";
 
 const PostBlog = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
+  const { userAuth } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const onChangeTitle = (e) => setTitle(e.target.value);
@@ -16,6 +18,8 @@ const PostBlog = () => {
     let data = {
       title: title,
       content: content,
+      author : userAuth.username,
+      author_id : userAuth.user_id,
       image: "",
     };
     if (file) {
@@ -46,6 +50,7 @@ const PostBlog = () => {
   return (
     <>
       <div>PostBlog</div>
+
       <form className="w-100 h-auto" onSubmit={submitPost}>
         <input type="file" onChange={(e) => setFile(e.target.files[0])}></input>
         <div className="mb-4">

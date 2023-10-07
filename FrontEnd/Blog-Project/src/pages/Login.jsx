@@ -1,31 +1,34 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { login } from '../services/blogs';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../App';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { setUserAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onChangeUsername = (e) => setUsername(e.target.value);
   const onChangePassword = (e) => setPassword(e.target.value);
 
   const loginSubmit = async(e) => {
-    let user = {};
 
     e.preventDefault();
+    let userData = {};
+
     const data = {
       username : username,
       password : password,
     }
     try {
-      const loginza = await login(data);
-      console.log('Login Complete!', loginza);
-      user = loginza;
+      userData = await login(data);
+      console.log('Login Complete!', userData);
     } catch (error) {
       console.log(error);
     }
-    if(user.status === 200){
+    if(userData.status === 200){
+      setUserAuth(userData.data.user);
       navigate('/')
     }
   }

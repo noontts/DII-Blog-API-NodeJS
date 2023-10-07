@@ -6,23 +6,29 @@ import PostBlog from "./pages/PostBlog";
 import BlogDetail from "./pages/BlogDetail";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import EditProfile from "./pages/EditProfile"
+import EditProfile from "./pages/EditProfile";
+import { createContext, useState } from "react";
 
+export const AuthContext = createContext(null);
 
 function App() {
+  const [userAuth, setUserAuth] = useState(null);
+
   return (
     <>
-    <Navbar/>
-      <div className="flex p-5 flex-wrap justify-center">
-        <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/post" element={<PostBlog/>}></Route>
-          <Route path="/blogs/:id" element={<BlogDetail/>}></Route>
-          <Route path="/register" element={<Register/>}></Route>
-          <Route path="/login" element={<Login/>}></Route>
-          <Route path="/edit" element={<EditProfile/>}></Route>
-        </Routes>
-      </div>
+      <AuthContext.Provider value={{ userAuth, setUserAuth }}>
+        <Navbar />
+        <div className="flex p-5 flex-wrap justify-center">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/post" element={<PostBlog />}></Route>
+            <Route path="/blogs/:id" element={<BlogDetail />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/edit" element={<EditProfile />}></Route>
+          </Routes>
+        </div>
+      </AuthContext.Provider>
     </>
   );
 }

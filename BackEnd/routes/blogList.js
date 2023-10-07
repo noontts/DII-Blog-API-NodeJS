@@ -42,10 +42,11 @@ router.get("/", (req, res) => {
 // });
 
 router.post("/", (req, res) => {
-  const { title, author, content, type, image, category } = req.body;
+  const { title, author, content, type, image, category, author_id } = req.body;
   const newBlog = {
     blog_id: data.length + 1,
     date: new Date().toLocaleDateString(),
+    author_id,
     author,
     title,
     content,

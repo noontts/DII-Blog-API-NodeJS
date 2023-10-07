@@ -23,7 +23,8 @@ export const fetchBlog = async (id) => {
 export const postBlog = async (blogs) => {
   const postData = {
     title: blogs.title,
-    author: "test",
+    author: blogs.author,
+    author_id: blogs.author_id,
     content: blogs.content,
     type: "test",
     category: "test",
