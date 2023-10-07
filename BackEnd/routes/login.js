@@ -4,7 +4,7 @@ const router = express.Router();
 const { data } = require("../data/user_data");
 
 
-router.post("/", (req, res) => {
+router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
   const user = data.find((user) => user.username === username);

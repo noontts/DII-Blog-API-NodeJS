@@ -35,8 +35,8 @@ app.use("/api/v1/blogs", commendRoutes);
 app.use("/api/v1/blogs", blogDetailRoutes);
 app.use("/api/v1/blogs", blogRoutes);
 app.use("/api/v1/blogs", imagesRoutes);
-app.use("/api/v1/register", registerRoutes);
-app.use("/api/v1/login", loginRoutes);
+app.use("/api/v1/auth/", registerRoutes);
+app.use("/api/v1/auth/", loginRoutes);
 
 
 
