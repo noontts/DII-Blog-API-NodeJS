@@ -6,6 +6,7 @@ import PostBlog from "./pages/PostBlog";
 import BlogDetail from "./pages/BlogDetail";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import EditProfile from "./pages/EditProfile"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/blogs/:id" element={<BlogDetail/>}></Route>
           <Route path="/register" element={<Register/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
+          <Route path="/edit" element={<EditProfile/>}></Route>
         </Routes>
       </div>
     </>
