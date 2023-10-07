@@ -45,9 +45,18 @@ const PostBlog = () => {
 
   return (
     <>
-      <div>PostBlog</div>
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm"></div>
       <form className="w-100 h-auto" onSubmit={submitPost}>
-        <input type="file" onChange={(e) => setFile(e.target.files[0])}></input>
+        <input type="file" class="mt-10 block w-full text-sm text-white
+          file:text-white
+          file:mr-4 file:py-2 file:px-4
+          file:rounded-full file:border-0
+          file:text-sm file:font-semibold
+          file:bg-green-500 file:text-violet-700
+          hover:file:bg-green-600
+          mb-10" 
+          onChange={(e) => setFile(e.target.files[0])}></input>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Title:
@@ -59,7 +68,7 @@ const PostBlog = () => {
             value={title}
             onChange={onChangeTitle}
             required
-            className="w-full p-2 border border-gray-300 rounded-md focus:border-sky-400"
+            className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-4xl sm:leading-6"
           ></input>
         </div>
 
@@ -73,17 +82,19 @@ const PostBlog = () => {
             value={content}
             onChange={onChangeContent}
             required
-            className="w-full p-2 border border-gray-300 rounded-md h-{500px} p-3 focus:border-sky-400"
+            style={{ height: '300px' }}
+            className="block w-full resize-none rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-3xl"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:shadow-outline-green"
+          className="mt-10 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:shadow-outline-green"
         >
           Submit
         </button>
       </form>
+      </div>
     </>
   );
 };
