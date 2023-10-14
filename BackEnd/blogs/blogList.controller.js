@@ -1,7 +1,6 @@
 const express = require("express");
-const { data } = require("../data/blog_data");
+const { Op } = require('sequelize');
 const Blogs = require('./blog.model');
-const { sequelize } = require("../config/database");
 const router = express.Router();
 
 router.get("/", async(req, res) => {
@@ -21,7 +20,9 @@ router.get("/", async(req, res) => {
     }
   
     if (search) {
-      whereClause.title = {[sequelize.Op.iLike]: `%${search.toLowerCase()}%` };
+      whereClause.title = { [Op.iLike]: `%${search.toLowerCase()}%` };
+
+      console.log(whereClause.title);
     }
 
     const filtered = await Blogs.findAll({
