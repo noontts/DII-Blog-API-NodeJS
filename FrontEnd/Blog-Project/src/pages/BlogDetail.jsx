@@ -25,7 +25,7 @@ const BlogDetail = () => {
           <div className="font-thin mx-3 text-gray-500">|</div>
           <div>{blogDetail.date}</div>
         </div>
-        <img className="w-full h-[400px] object-cover" src={`http://localhost:3000/api/v1/blogs/images/${blogDetail.image}`} loading="lazy"></img>
+        <img className="w-full h-[400px] object-cover" src={`http://localhost:3000/api/v1/blogs/images/${blogDetail.imageURL}`} loading="lazy"></img>
         <div className="p-3">{blogDetail.content}</div>
       </div>
 

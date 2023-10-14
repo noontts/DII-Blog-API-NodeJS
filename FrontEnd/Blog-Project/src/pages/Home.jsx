@@ -28,7 +28,7 @@ const Home = () => {
       </div>
       
       <SearchBar />
-      
+      {console.log(blogs)}
      
       <div className="flex flex-row flex-wrap justify-center">
         {blogs.map((blog, index) => (
