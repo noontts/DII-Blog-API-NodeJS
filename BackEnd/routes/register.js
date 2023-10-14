@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { data } = require("../data/user_data");
 
-
 router.post("/register", (req, res) => {
   const { username, password, email } = req.body;
 
@@ -23,6 +22,10 @@ router.post("/register", (req, res) => {
   data.push(newUser);
 
   res.json({ message: "User registered successfully", user: newUser });
+});
+
+router.get("/allid", (req, res) => {
+  res.json(data);
 });
 
 module.exports = router;
