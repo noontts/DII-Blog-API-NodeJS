@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
+const Comments = require('../comments/comments.model');
 
 const Blogs = sequelize.define(
     'Blogs',{
@@ -26,10 +27,13 @@ const Blogs = sequelize.define(
         },
         category:{
             type: DataTypes.STRING
-        },
-        comments:{
-            type: DataTypes.ARRAY(DataTypes.JSON)
         }
     });
+
+    Blogs.hasMany(Comments, {
+        foreignKey: 'blogId',
+        sourceKey: 'id',
+        as: 'blogComments',
+      });
 
 module.exports = Blogs;
