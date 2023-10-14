@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { fetchAllBlogs } from "../services/blogs";
+import SearchBar from "../components/Seach";
+
+
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -20,7 +23,13 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div>Home</div>
+      <div className="my-4 text-2xl font-bold text-center">
+       Blogs
+      </div>
+      
+      <SearchBar />
+      
+     
       <div className="flex flex-row flex-wrap justify-center">
         {blogs.map((blog, index) => (
           <Card key={index} CardObj={blog} />
