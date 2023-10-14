@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchBlog } from "../services/blogs";
 import CommentBox from "../components/CommentBox";
 import ReplyComment from "../components/ReplyComment";
+import NewComment from "../components/NewComment";
 
 const BlogDetail = () => {
   const id = useParams();
@@ -33,6 +34,7 @@ const BlogDetail = () => {
 
       <div className="mt-10 bg-white  py-8 lg:py-16 antialiased">
         <div className="max-w-2xl mx-auto px-4">
+            <NewComment/>
             <CommentBox/>
             <ReplyComment/>
             <ReplyComment/>
