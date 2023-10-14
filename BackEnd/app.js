@@ -1,17 +1,26 @@
 const express = require("express");
 const cors = require('cors');
+const morgan = require('morgan');
 const multer = require('multer');
+const { connect, sync } = require('./config/database')
 
 const commendRoutes = require("./routes/comments");
-const blogDetailRoutes = require("./routes/blogDetail");
-const blogRoutes = require("./routes/blogList");
+const blogDetailRoutes = require("./blogs/blogDetail.controller");
+const blogRoutes = require("./blogs/blogList.controller");
 const imagesRoutes = require("./routes/images");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
 
 
-const app = express();
+async function initializeDatabase(){
+  await connect();
+  await sync();
+}
 
+initializeDatabase();
+
+const app = express();
+app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
