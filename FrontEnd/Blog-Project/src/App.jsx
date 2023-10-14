@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import EditProfile from "./pages/EditProfile";
 import { createContext, useState } from "react";
+import EditPost from "./pages/EditPost";
 
 export const AuthContext = createContext(null);
 
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/post" element={<PostBlog />}></Route>
+            <Route path="/postEdit" element={<EditPost />}></Route>
             <Route path="/blogs/:id" element={<BlogDetail />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
