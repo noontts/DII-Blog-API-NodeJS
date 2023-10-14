@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   if (blogs.length === 0) {
-    return <SearchBar />
+    return <div> Loading</div>
   }
 
   return (

@@ -41,12 +41,6 @@ router.get("/", async(req, res) => {
   
 });
 
-// router.get("/:id", (req, res) => {
-//   const id = Number.parseInt(req.params.id);
-//   const blogIndex = data.findIndex((blog) => blog.blog_id === id);
-//   res.json(data[blogIndex]);
-// });
-
 router.post("/", async(req, res) => {
   const { title, author, content, type, imageURL, category, authorID } = req.body;
   const newBlog = await Blogs.create({
