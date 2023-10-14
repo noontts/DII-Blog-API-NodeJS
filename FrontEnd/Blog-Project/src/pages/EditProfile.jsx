@@ -9,6 +9,17 @@ const EditProfile = () => {
             Edit your profile
           </h2>
         </div>
+        
+        <input type="file" class="
+          mx-auto text-center mt-10 block text-sm text-white
+          file:text-white
+          file:mr-4 file:py-2 file:px-4
+          file:rounded-full file:border-0
+          file:text-sm file:font-semibold
+          file:bg-green-500 file:text-violet-700
+          hover:file:bg-green-600
+          mb-10" 
+          onChange={(e) => setFile(e.target.files[0])}></input>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
