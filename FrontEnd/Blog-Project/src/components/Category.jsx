@@ -1,8 +1,6 @@
-
-
-const CategoryList = ({ categories }) => {
+const CategoryList = () => {
   return (
-   dsf
+   <div>categories</div>
   );
 };
 
