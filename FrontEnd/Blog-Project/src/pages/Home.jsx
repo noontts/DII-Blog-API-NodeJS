@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { fetchAllBlogs } from "../services/blogs";
 import SearchBar from "../components/Seach";
+import CategoryList from "../components/Category";
 
 
 
@@ -28,6 +29,8 @@ const Home = () => {
       </div>
       
       <SearchBar />
+      <CategoryList />
+      
       {console.log(blogs)}
      
       <div className="flex flex-row flex-wrap justify-center">
