@@ -8,8 +8,8 @@ const commendRoutes = require("./comments/comments.controller");
 const blogDetailRoutes = require("./blogs/blogDetail.controller");
 const blogRoutes = require("./blogs/blogList.controller");
 const imagesRoutes = require("./routes/images");
-const registerRoutes = require("./routes/register");
-const loginRoutes = require("./routes/login");
+const registerRoutes = require("./auth/register.controller");
+const loginRoutes = require("./auth/login.controller");
 
 
 async function initializeDatabase(){
