@@ -45,7 +45,6 @@ async function createBlog(title, content, type, imageURL, category, authorID) {
   const author = user.dataValues.username;
 
   const newBlog = await Blogs.create({
-    date: new Date().toLocaleDateString(),
     authorID,
     author,
     title,

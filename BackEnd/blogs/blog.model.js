@@ -5,7 +5,8 @@ const users = require('../auth/user.model');
 const Blogs = sequelize.define(
     'Blogs',{
         date: {
-            type: DataTypes.STRING
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
         },
         authorID:{
             type: DataTypes.INTEGER

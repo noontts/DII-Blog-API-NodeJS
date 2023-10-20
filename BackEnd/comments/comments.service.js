@@ -20,7 +20,7 @@ async function getComments(blogId) {
   }
 }
 
-async function createComment(blogId, author_id, comment_content, date) {
+async function createComment(blogId,author, author_id, comment_content) {
   const blog = await Blogs.findByPk(blogId);
 
   if (!blog) {
@@ -28,9 +28,9 @@ async function createComment(blogId, author_id, comment_content, date) {
   }
 
   const newComment = await Comments.create({
+    author,
     author_id,
     comment_content,
-    date,
     blogId,
   });
 

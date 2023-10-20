@@ -112,8 +112,8 @@ router.get('/:id/comments', async (req, res) => {
 });
 
 router.post('/:id/comments', async (req, res) => {
-  const { author_id, comment_content, date } = req.body;
-  const result = await commentsService.createComment(req.params.id, author_id, comment_content, date);
+  const { author_id, author, comment_content} = req.body;
+  const result = await commentsService.createComment(req.params.id, author, author_id, comment_content);
   res.status(result.status).json(result.comment);
 });
 

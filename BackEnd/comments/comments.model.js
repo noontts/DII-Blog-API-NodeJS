@@ -9,6 +9,9 @@ const Comments = sequelize.define(
             primaryKey: true,
             autoIncrement: true,
         },
+        author:{
+            type: DataTypes.STRING
+        },
         author_id: {
             type: DataTypes.STRING
         },
@@ -16,7 +19,8 @@ const Comments = sequelize.define(
             type: DataTypes.TEXT
         },
         date:{
-            type: DataTypes.STRING
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
         },
         blogId: {
             type: DataTypes.INTEGER,

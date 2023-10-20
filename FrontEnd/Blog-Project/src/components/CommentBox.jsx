@@ -4,11 +4,11 @@ const CommentBox = ({ commentObj }) => {
       <footer className="flex justify-between items-center mb-2">
         <div className="flex items-center">
           <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-black font-semibold">
-            Michael Gough
+            {commentObj.author}
           </p>
           <p className="text-sm text-gray-800 dark:text-gray-800">
             <time dateTime="2022-02-08" title="February 8th, 2022">
-              Feb. 8, 2022
+              {commentObj.date}
             </time>
           </p>
         </div>

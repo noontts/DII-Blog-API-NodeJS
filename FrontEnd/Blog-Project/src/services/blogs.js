@@ -127,8 +127,8 @@ export const fetchComment = async(blogsID)=>{
 export const postComment = async(blogsID, commentsData)=>{
   const commentData = {
     author_id: commentsData.author_id,
+    author: commentsData.author,
     comment_content: commentsData.comment_content,
-    date: commentsData.date,
   };
   try {
     await axios.post(`http://localhost:3000/api/v1/blogs/${blogsID}/comments`, commentData);

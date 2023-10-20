@@ -12,9 +12,9 @@ const NewComment = ({ commentData, setComment, blogID }) => {
   const submitComment = async (e) => {
     e.preventDefault();
     let data = {
-        author_id : userAuth.user_id,
+        author_id : userAuth.id,
+        author : userAuth.username,
         comment_content : content,
-        date : "2023-10-20",
     };
     try {
       await postComment(blogID,data);
