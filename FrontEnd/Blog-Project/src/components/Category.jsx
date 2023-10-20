@@ -10,8 +10,7 @@ const CategoryList = () => {
         {categories.map((category, index) => (
           <li
             key={index}
-            className="rounded-md shadow-md p-4 m-2 cursor-pointer hover:shadow-lg transition duration-300
-            uppercase"
+            className="rounded-md shadow-md p-4 m-2 cursor-pointer hover:shadow-lg transition duration-300 uppercase"
           >
             <Link to={`?category=${category}`}>{category}</Link>
           </li>
