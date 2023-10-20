@@ -1,6 +1,34 @@
-const SearchBar = () => {
+import { useSearchParams } from "react-router-dom";
+import { fetchSearchBlogs,fetchAllBlogs } from "../services/blogs";
+
+const SearchBar = ({setData}) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchTerm = searchParams.get('search') || '';
+
+  const handleSearch = (async(e)=>{
+    const search = e.target.value;
+
+    if(search){
+      setSearchParams({ search });
+    }else{
+      setSearchParams({});
+      const res = await fetchAllBlogs(); // Fetch all data when search term is empty
+      setData(res);
+    }
+  })
+
+  const onSubmit = (async(e)=>{
+    e.preventDefault();
+    
+    if (searchTerm) {
+      const res = await fetchSearchBlogs(searchTerm);
+      setData(res);
+    }
+  })
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -15,7 +43,7 @@ const SearchBar = () => {
           style={{ width: "1000px" }}
           placeholder="Search Title..."
           name="search"
-          
+          value={searchTerm} onChange={handleSearch}       
           required
         />
         <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-600">

@@ -28,7 +28,7 @@ const Home = () => {
        Blogs
       </div>
       
-      <SearchBar />
+      <SearchBar setData={setBlogs}/>
       <CategoryList />
       
       {console.log(blogs)}

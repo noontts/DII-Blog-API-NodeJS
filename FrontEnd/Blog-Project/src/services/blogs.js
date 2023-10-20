@@ -10,6 +10,16 @@ export const fetchAllBlogs = async () => {
   }
 };
 
+export const fetchSearchBlogs = async (keyword) => {
+  const response = await axios.get(`http://localhost:3000/api/v1/blogs?search=${keyword}`);
+  try {
+    console.log("Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 export const fetchUserBlogs = async (userid) => {
   const response = await axios.get(`http://localhost:3000/api/v1/blogs?userId=${userid}`);
   try {
