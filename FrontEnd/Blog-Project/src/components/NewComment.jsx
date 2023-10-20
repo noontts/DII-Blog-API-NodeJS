@@ -26,7 +26,7 @@ const NewComment = ({ commentData, setComment, blogID }) => {
   }
   return (
     <>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6" style={{ width: "700px" }}>
         <h2 className="text-lg lg:text-2xl font-bold text-black">
           Discussion ({commentData.length})
         </h2>
