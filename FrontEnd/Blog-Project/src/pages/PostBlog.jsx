@@ -9,6 +9,7 @@ const PostBlog = () => {
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
   const { userAuth } = useContext(AuthContext);
+  const [category, setCategory] = useState("none");
 
   const navigate = useNavigate();
   const onChangeTitle = (e) => setTitle(e.target.value);
@@ -20,6 +21,7 @@ const PostBlog = () => {
       title: title,
       content: content,
       author_id: userAuth.id,
+      category: category,
       image: "",
     };
     if (file) {
@@ -79,7 +81,8 @@ const PostBlog = () => {
           <div className="mb-4" style={{ position: "relative" }}>
             <div className="flex">
                 <p className="mr-2 font-bold">Category</p>
-              <select  className="ring-2 ring-inset ring-gray-300" id="Category">
+              <select  value={category}  onChange={(e) => setCategory(e.target.value)}
+              className="ring-2 ring-inset ring-gray-300" id="Category">
                 <option value="none">Choose your category</option>
                 <option value="sports">Sports</option>
                 <option value="technology">Technology</option>

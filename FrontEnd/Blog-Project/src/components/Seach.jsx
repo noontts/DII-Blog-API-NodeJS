@@ -7,12 +7,13 @@ const SearchBar = ({setData}) => {
   const searchTerm = searchParams.get('search') || '';
 
   const handleSearch = (async(e)=>{
+    const category = new URLSearchParams(window.location.search).get('category');
     const search = e.target.value;
 
     if(search){
-      setSearchParams({ search });
+      setSearchParams({ search, category });
     }else{
-      setSearchParams({});
+      setSearchParams({ category });
       const res = await fetchAllBlogs(); // Fetch all data when search term is empty
       setData(res);
     }

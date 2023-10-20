@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      if (category) {
+      if (category && category !== 'all') {
         const data = await fetchBlogsByCategory(category);
         setBlogs(data);
       } else {
@@ -26,7 +26,7 @@ const Home = () => {
     };
 
     fetchBlogs();
-  }, []);
+  }, [category]);
 
   if (blogs.length === 0) {
     return <div> Loading</div>

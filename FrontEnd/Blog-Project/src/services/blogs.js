@@ -58,7 +58,7 @@ export const postBlog = async (blogs) => {
     content: blogs.content,
     type: "test",
     imageURL: blogs.image,
-    category: "test"
+    category: blogs.category
   };
 
   await axios

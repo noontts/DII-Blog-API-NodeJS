@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const CategoryList = () => {
-  const categories = ['sports', 'technology', 'food', 'fashion', 'travel', 'arts'];
+  const categories = ['all','sports', 'technology', 'food', 'fashion', 'travel', 'arts'];
 
   return (
     <div className="w-full p-3 j">
