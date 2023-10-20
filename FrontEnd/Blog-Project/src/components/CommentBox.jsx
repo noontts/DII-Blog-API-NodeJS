@@ -8,7 +8,7 @@ const CommentBox = ({ commentObj }) => {
           </p>
           <p className="text-sm text-gray-800 dark:text-gray-800">
             <time dateTime="2022-02-08" title="February 8th, 2022">
-              {commentObj.date}
+            {new Date(commentObj.date).toUTCString()}
             </time>
           </p>
         </div>

@@ -14,7 +14,7 @@ const Card = ({ CardObj }) => {
           <Link to={`/blogs/${CardObj.id}`}>{CardObj.title}</Link>
         </div>
         <div className="flex align-items-center justify-content-center py-4 text-gray-400">
-          {CardObj.date}
+          {new Date(CardObj.date).toDateString()}
         </div>
         <p className="line-clamp-5">{CardObj.content}</p>
       </div>

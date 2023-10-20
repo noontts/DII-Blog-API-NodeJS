@@ -44,7 +44,7 @@ const BlogDetail = () => {
             <div className="flex justify-start w-full p-3">
               <div>{blogDetail.author}</div>
               <div className="font-thin mx-3 text-gray-500">|</div>
-              <div>{blogDetail.date}</div>
+              <div>{new Date(blogDetail.date).toDateString()}</div>
             </div>
             <img
               className="w-full h-[400px] object-cover"
