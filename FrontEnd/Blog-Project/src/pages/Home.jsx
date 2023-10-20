@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import { fetchAllBlogs } from "../services/blogs";
+import { fetchAllBlogs,fetchBlogsByCategory } from "../services/blogs";
 import SearchBar from "../components/Seach";
 import CategoryList from "../components/Category";
+import { useLocation } from 'react-router-dom';
 
 
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('category');
+
   useEffect(() => {
     const fetchBlogs = async () => {
-      const data = await fetchAllBlogs();
-      setBlogs(data);
+      if (category) {
+        const data = await fetchBlogsByCategory(category);
+        setBlogs(data);
+      } else {
+        const data = await fetchAllBlogs();
+        setBlogs(data);
+      }
     };
 
     fetchBlogs();

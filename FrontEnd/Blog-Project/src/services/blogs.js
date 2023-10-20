@@ -88,3 +88,13 @@ export const postComment = async(blogsID, commentsData)=>{
     console.error("Error:", error);
   }
 }
+
+export const fetchBlogsByCategory = async (category) => {
+  const response = await axios.get(`http://localhost:3000/api/v1/blogs/?category=${category}`);
+  try {
+    console.log("Response:", response.data);
+    return response.data; 
+  } catch (error) {
+    console.error('Error fetching blogs by category:', error);
+  }
+};
