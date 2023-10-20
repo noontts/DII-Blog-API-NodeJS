@@ -30,7 +30,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/edit" element={<EditProfile />}></Route>
             <Route path="/my-blogs" element={<MyBlog />}></Route>
-            <Route path="/eee" element={<EditPost />}></Route>
+            <Route path="/my-blogs/:id" element={<EditPost />}></Route>
           </Routes>
         </div>
       </AuthContext.Provider>

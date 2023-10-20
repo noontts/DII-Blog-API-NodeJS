@@ -40,6 +40,16 @@ export const fetchBlog = async (id) => {
   }
 };
 
+export const deleteBlog = async (id) => {
+  const response = await axios.delete(`http://localhost:3000/api/v1/blogs/${id}`);
+  try {
+    console.log("Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 export const postBlog = async (blogs) => {
   const postData = {
     date: '20/10/2023',
