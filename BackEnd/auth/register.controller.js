@@ -4,9 +4,9 @@ const router = express.Router();
 const regisService = require("./register.service");
 
 router.post("/register", async (req, res) => {
-  const { username, password, email } = req.body;
+  const { username, password, email, profile_imgURL } = req.body;
 
-  const regisResult = await regisService.register(username, password, email);
+  const regisResult = await regisService.register(username, password, email, profile_imgURL);
 
   res.status(regisResult.status).json({ message: regisResult.message, user: regisResult.user });
 });

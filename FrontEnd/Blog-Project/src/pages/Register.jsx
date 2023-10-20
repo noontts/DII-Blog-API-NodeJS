@@ -16,6 +16,7 @@ const Register = () => {
     e.preventDefault();
     console.log('Form submitted');
     const data = {
+      profile_imgURL:'iProflie7.jpg',
       username : username,
       email : email,
       password : password,

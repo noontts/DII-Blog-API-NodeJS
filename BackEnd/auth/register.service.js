@@ -1,6 +1,6 @@
 const User = require("./user.model");
 
-async function register(username, password, email) {
+async function register(username, password, email,profile_imgURL) {
   try {
     const existingUser = await User.findOne({ where: { username } });
 
@@ -12,6 +12,7 @@ async function register(username, password, email) {
       username,
       email,
       password,
+      profile_imgURL,
     });
 
     return { status: 200, message: "User registered successfully", user: newUser };
