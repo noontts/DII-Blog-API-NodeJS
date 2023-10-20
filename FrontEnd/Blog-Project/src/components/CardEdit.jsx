@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ CardObj }) => {
+const CardEdit = ({ CardObj }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-evenly w-96 rounded-2 m-4 border-solid border-1 p-4 shadow-md hover:shadow-lg">
@@ -22,4 +22,4 @@ const Card = ({ CardObj }) => {
   );
 };
 
-export default Card;
+export default CardEdit;

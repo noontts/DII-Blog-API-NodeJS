@@ -5,6 +5,7 @@ const users = require("../auth/user.model");
 const router = express.Router();
 
 router.get("/", async(req, res) => {
+  const userId = req.query.userId;
   const category = req.query.category;
   const search = req.query.search;
   const type = req.query.type;
@@ -18,6 +19,10 @@ router.get("/", async(req, res) => {
   
     if (type) {
       whereClause.type = type.toLowerCase();
+    }
+
+    if(userId){
+      whereClause.authorID = Number.parseInt(userId);
     }
   
     if (search) {

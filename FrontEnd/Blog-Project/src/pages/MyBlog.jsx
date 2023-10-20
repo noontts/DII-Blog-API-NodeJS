@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import CardEdit from "../components/CardEdit";
 import { fetchAllBlogs } from "../services/blogs";
 
 
@@ -30,7 +30,7 @@ const MyBlog = () => {
      
       <div className="flex flex-row flex-wrap justify-center">
         {blogs.map((blog, index) => (
-          <Card key={index} CardObj={blog} />
+          <CardEdit key={index} CardObj={blog} />
         ))}
       </div>
     </div>
