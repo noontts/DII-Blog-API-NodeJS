@@ -29,10 +29,8 @@ const BlogDetail = () => {
   };
 
   useEffect(() => {
-
     fetchComments();
     fetchDetail();
-
   }, [id.id]);
 
   return (
@@ -51,15 +49,22 @@ const BlogDetail = () => {
               src={`http://localhost:3000/api/v1/blogs/images/${blogDetail.imageURL}`}
               loading="lazy"
             ></img>
-            <div className="p-3 text-2xl mt-10">{blogDetail.content}</div>
+
+            <div className="p-3 text-2xl mt-10">
+              <p className="first-letter">{blogDetail.content}</p>
+            </div>
           </div>
 
           <div className="mt-10 bg-white py-8 lg:py-16 antialiased">
             <div className="w-2xl mx-auto px-4">
-              <NewComment commentData={comment} setComment={setComment} blogID={id.id}/>
-              {comment.map((comment, index)=>
-                <CommentBox commentObj={comment} key={index}/>
-              )}
+              <NewComment
+                commentData={comment}
+                setComment={setComment}
+                blogID={id.id}
+              />
+              {comment.map((comment, index) => (
+                <CommentBox commentObj={comment} key={index} />
+              ))}
             </div>
           </div>
         </>

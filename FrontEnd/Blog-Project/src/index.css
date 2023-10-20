@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.first-letter::first-letter {
+    font-size: 3.2em; /* You can adjust the font size as needed */
+    font-weight: bold; /* You can adjust the font weight as needed */
+    color: #000000; /* You can set the color as needed */
+    /* Add any other styling you want for the first letter */
+  }
