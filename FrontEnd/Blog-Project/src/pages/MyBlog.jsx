@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import CardEdit from "../components/CardEdit";
-import { fetchAllBlogs } from "../services/blogs";
-
+import { fetchUserBlogs } from "../services/blogs";
+import { AuthContext } from "../App";
 
 
 const MyBlog = () => {
   const [blogs, setBlogs] = useState([]);
+  const { userAuth } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const data = await fetchAllBlogs();
+      const data = await fetchUserBlogs(userAuth.id);
       setBlogs(data);
     };
 
     fetchBlogs();
-  }, []);
+  }, [userAuth.id]);
 
   if (blogs.length === 0) {
-    return <div> Loading</div>
+    return <div>Not Found Post!</div>
   }
 
   return (

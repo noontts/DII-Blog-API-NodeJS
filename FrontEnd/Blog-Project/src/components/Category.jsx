@@ -12,7 +12,7 @@ const CategoryList = () => {
             key={index}
             className="rounded-md shadow-md p-4 m-2 cursor-pointer hover:shadow-lg transition duration-300"
           >
-            <Link to={`/?category=${category}`}>{category}</Link>
+            <Link to={`?category=${category}`}>{category}</Link>
           </li>
         ))}
       </ul>
