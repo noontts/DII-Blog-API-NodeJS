@@ -10,7 +10,7 @@ const EditProfile = () => {
           </h2>
         </div>
         
-        <input type="file" class="
+        <input type="file" className="
           mx-auto text-center mt-10 block text-sm text-white
           file:text-white
           file:mr-4 file:py-2 file:px-4
@@ -19,7 +19,7 @@ const EditProfile = () => {
           file:bg-green-500 file:text-violet-700
           hover:file:bg-green-600
           mb-10" 
-          onChange={(e) => setFile(e.target.files[0])}></input>
+          onChange={(e) => setFlie(e.target.files[0])}></input>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
