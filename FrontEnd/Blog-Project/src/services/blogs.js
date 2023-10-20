@@ -22,13 +22,13 @@ export const fetchBlog = async (id) => {
 
 export const postBlog = async (blogs) => {
   const postData = {
+    date: '20/10/2023',
+    authorID: blogs.author_id,
     title: blogs.title,
-    author: blogs.author,
-    author_id: blogs.author_id,
     content: blogs.content,
     type: "test",
-    category: "test",
-    image: blogs.image
+    imageURL: blogs.image,
+    category: "test"
   };
 
   await axios
@@ -71,6 +71,19 @@ export const fetchComment = async(blogsID)=>{
   try {
     console.log("Comment Response:", response.data);
     return response.data
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+export const postComment = async(blogsID, commentsData)=>{
+  const commentData = {
+    author_id: commentsData.author_id,
+    comment_content: commentsData.comment_content,
+    date: commentsData.date,
+  };
+  try {
+    await axios.post(`http://localhost:3000/api/v1/blogs/${blogsID}/comments`, commentData);
   } catch (error) {
     console.error("Error:", error);
   }

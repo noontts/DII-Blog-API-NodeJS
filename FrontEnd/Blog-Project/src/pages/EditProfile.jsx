@@ -10,7 +10,7 @@ const EditProfile = () => {
           </h2>
         </div>
         
-        <input type="file" class="
+        <input type="file" className="
           mx-auto text-center mt-10 block text-sm text-white
           file:text-white
           file:mr-4 file:py-2 file:px-4

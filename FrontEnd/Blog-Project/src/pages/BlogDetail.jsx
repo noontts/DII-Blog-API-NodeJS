@@ -56,7 +56,7 @@ const BlogDetail = () => {
 
           <div className="mt-10 bg-white py-8 lg:py-16 antialiased">
             <div className="w-2xl mx-auto px-4">
-              <NewComment commentData={comment} setComment={setComment} />
+              <NewComment commentData={comment} setComment={setComment} blogID={id.id}/>
               {comment.map((comment, index)=>
                 <CommentBox commentObj={comment} key={index}/>
               )}

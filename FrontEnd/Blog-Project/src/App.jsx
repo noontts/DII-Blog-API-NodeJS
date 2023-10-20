@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import EditProfile from "./pages/EditProfile";
 import { createContext, useState } from "react";
 import EditPost from "./pages/EditPost";
+import MyBlog from "./pages/MyBlog";
 
 export const AuthContext = createContext(null);
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/edit" element={<EditProfile />}></Route>
+            <Route path="/my-blogs" element={<MyBlog />}></Route>
           </Routes>
         </div>
       </AuthContext.Provider>

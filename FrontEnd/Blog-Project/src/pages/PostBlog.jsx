@@ -18,8 +18,7 @@ const PostBlog = () => {
     let data = {
       title: title,
       content: content,
-      author : userAuth.username,
-      author_id : userAuth.user_id,
+      author_id : userAuth.id,
       image: "",
     };
     if (file) {
@@ -36,6 +35,7 @@ const PostBlog = () => {
       }
     }
     try {
+      console.log(userAuth.id);
       await postBlog(data);
     } catch (error) {
       console.log(error);

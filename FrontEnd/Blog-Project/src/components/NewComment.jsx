@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../App";
+import { postComment } from "../services/blogs";
 
-const NewComment = ({ commentData, setComment }) => {
+const NewComment = ({ commentData, setComment, blogID }) => {
   const { userAuth } = useContext(AuthContext);
   const [content, setContent] = useState("");
 
@@ -10,7 +11,17 @@ const NewComment = ({ commentData, setComment }) => {
 
   const submitComment = async (e) => {
     e.preventDefault();
-    setComment(commentData)
+    let data = {
+        author_id : userAuth.user_id,
+        comment_content : content,
+        date : "2023-10-20",
+    };
+    try {
+      await postComment(blogID,data);
+    } catch (error) {
+      console.log(error);
+    }
+    setComment([data,...commentData]);
     setContent("");
   }
   return (
