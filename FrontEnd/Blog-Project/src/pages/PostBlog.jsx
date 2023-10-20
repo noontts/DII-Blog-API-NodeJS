@@ -78,17 +78,15 @@ const PostBlog = () => {
 
           <div className="mb-4" style={{ position: "relative" }}>
             <div className="flex">
-                <p>Catagory</p>
-              <select name="languages" id="lang">
-                <option value="none">none</option>
-                <option value="javascript">JavaScript</option>
-                <option value="php">PHP</option>
-                <option value="java">Java</option>
-                <option value="golang">Golang</option>
-                <option value="python">Python</option>
-                <option value="c#">C#</option>
-                <option value="C++">C++</option>
-                <option value="erlang">Erlang</option>
+                <p className="mr-2 font-bold">Category</p>
+              <select  className="ring-2 ring-inset ring-gray-300" id="Category">
+                <option value="none">Choose your category</option>
+                <option value="sports">Sports</option>
+                <option value="technology">Technology</option>
+                <option value="food">Food</option>
+                <option value="fashion">Fashion</option>
+                <option value="travel">Travel</option>
+                <option value="arts">Arts</option>
               </select>
             </div>
 
