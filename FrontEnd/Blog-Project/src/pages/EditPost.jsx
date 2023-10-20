@@ -5,8 +5,8 @@ const EditPost = () => {
     <>
       <div>EditPost</div>
 
-      <form className="w-100 h-auto" onSubmit={submitPost}>
-        <input type="file" onChange={(e) => setFile(e.target.files[0])}></input>
+      <form className="w-100 h-auto">
+        <input type="file"></input>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Title:
@@ -15,8 +15,8 @@ const EditPost = () => {
             type="text"
             id="title"
             name="title"
-            value={title}
-            onChange={onChangeTitle}
+            // value={title}
+            // onChange={onChangeTitle}
             required
             className="w-full p-2 border border-gray-300 rounded-md focus:border-sky-400"
           ></input>
@@ -29,8 +29,8 @@ const EditPost = () => {
           <textarea
             id="content"
             name="content"
-            value={content}
-            onChange={onChangeContent}
+            // value={content}
+            // onChange={onChangeContent}
             required
             className="w-full p-2 border border-gray-300 rounded-md h-{500px} p-3 focus:border-sky-400"
           ></textarea>
