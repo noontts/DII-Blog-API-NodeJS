@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { data } = require("../data/blog_data");
-const Blogs = require('./blogModel');
+const Blogs = require('./blog.model');
 const route = express.Router();
 
 // GET Blog by Id

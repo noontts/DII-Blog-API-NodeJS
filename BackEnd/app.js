@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const multer = require('multer');
 const { connect, sync } = require('./config/database')
 
-const commendRoutes = require("./routes/comments");
+const commendRoutes = require("./comments/comments.controller");
 const blogDetailRoutes = require("./blogs/blogDetail.controller");
 const blogRoutes = require("./blogs/blogList.controller");
 const imagesRoutes = require("./routes/images");

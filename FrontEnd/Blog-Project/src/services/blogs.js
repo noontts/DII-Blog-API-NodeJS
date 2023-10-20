@@ -65,3 +65,13 @@ export const login = async(data)=>{
     console.log(error);
   }
 }
+
+export const fetchComment = async(blogsID)=>{
+  const response = await axios.get(`http://localhost:3000/api/v1/blogs/${blogsID}/comments`);
+  try {
+    console.log("Response:", response.data);
+    return response.data.blogComments;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
