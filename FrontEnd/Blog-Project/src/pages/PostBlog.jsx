@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { postBlog, uploadImage } from "../services/blogs";
-import { useNavigate } from "react-router-dom"
+import Dropdown from "../components/Dropdown";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../App";
 
 const PostBlog = () => {
@@ -18,7 +19,7 @@ const PostBlog = () => {
     let data = {
       title: title,
       content: content,
-      author_id : userAuth.id,
+      author_id: userAuth.id,
       image: "",
     };
     if (file) {
@@ -40,7 +41,7 @@ const PostBlog = () => {
     } catch (error) {
       console.log(error);
     }
-    navigate('/');
+    navigate("/");
 
     setFile(null);
     setTitle("");
@@ -52,9 +53,14 @@ const PostBlog = () => {
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm"></div>
         <form className="w-100 h-auto flex flex-col" onSubmit={submitPost}>
-
           <div className="text-center">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               {file && (
                 <img
                   src={URL.createObjectURL(file)}
@@ -70,32 +76,26 @@ const PostBlog = () => {
             </div>
           </div>
 
-          <div className="mb-4" style={{ position: 'relative' }}>
+          <div className="mb-4" style={{ position: "relative" }}>
+            <div className="flex">
+                <p>Catagory</p>
+              <select name="languages" id="lang">
+                <option value="none">none</option>
+                <option value="javascript">JavaScript</option>
+                <option value="php">PHP</option>
+                <option value="java">Java</option>
+                <option value="golang">Golang</option>
+                <option value="python">Python</option>
+                <option value="c#">C#</option>
+                <option value="C++">C++</option>
+                <option value="erlang">Erlang</option>
+              </select>
+            </div>
+
             <label className="block mt-20 text-gray-700 text-sm font-bold mb-2">
               Title:
             </label>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              
-              <button
-                id="dropdownDefaultButton"
-                data-dropdown-toggle="dropdown"
-                className="mt-5 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                type="button"
-                style={{ position: 'absolute', left: '0', top: '-15px' }} // Adjust the 'left' property as needed
-              >
-                Category <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-                </svg>
-              </button>
-
-              <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                  <li>
-                    <a href="Sports" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sports</a>
-                  </li>
-                </ul>
-              </div>
-
+            <div style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="text"
                 id="title"
@@ -118,7 +118,7 @@ const PostBlog = () => {
               value={content}
               onChange={onChangeContent}
               required
-              style={{ height: '300px' }}
+              style={{ height: "300px" }}
               className="block w-full resize-none rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-3xl"
             ></textarea>
           </div>
@@ -127,7 +127,7 @@ const PostBlog = () => {
             <button
               type="submit"
               className="mt-10 mr-5 bg-green-500 text-white px-20 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:shadow-outline-green"
-              style={{ justifyContent: 'flex-start' }}
+              style={{ justifyContent: "flex-start" }}
             >
               Submit
             </button>
@@ -135,7 +135,6 @@ const PostBlog = () => {
         </form>
       </div>
     </>
-
   );
 };
 
