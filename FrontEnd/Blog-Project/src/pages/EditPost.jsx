@@ -1,7 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useLocation } from 'react-router-dom';
+import { useLocation,useParams } from 'react-router-dom';
 import { AuthContext } from "../App";
+import { editBlog, uploadImage } from '../services/blogs';
 
 
 const EditPost = () => {
@@ -14,6 +15,7 @@ const EditPost = () => {
 
   console.log(location);
   const navigate = useNavigate();
+  const id = useParams();
 
   useEffect(() => {
     if (CardObj) {
@@ -32,9 +34,9 @@ const EditPost = () => {
     let data = {
       title: title,
       content: content,
-      author_id : userAuth.id,
       image: "",
     };
+
     if (file) {
       const imageData = new FormData();
       const fileName = Date.now() + file.name;
@@ -47,10 +49,13 @@ const EditPost = () => {
       } catch (error) {
         console.log(error);
       }
+    }else{
+      data.image = CardObj.imageURL;
     }
+    
     try {
       console.log(userAuth.id);
-      await postBlog(data);
+      await editBlog(data, id.id);
     } catch (error) {
       console.log(error);
     }

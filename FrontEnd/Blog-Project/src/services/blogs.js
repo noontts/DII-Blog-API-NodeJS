@@ -71,6 +71,24 @@ export const postBlog = async (blogs) => {
     });
 };
 
+export const editBlog = async (blogs,id) => {
+  const postData = {
+    title: blogs.title,
+    content: blogs.content,
+    imageURL: blogs.image,
+    category: "test"
+  };
+
+  await axios
+    .put(`http://localhost:3000/api/v1/blogs/${id}`, postData)
+    .then((response) => {
+      console.log("Response:", response.data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
 export const uploadImage = async(data) =>{
   try {
     await axios.post('http://localhost:3000/api/v1/upload',data);
