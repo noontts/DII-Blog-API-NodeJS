@@ -11,7 +11,7 @@ router.get("/:id/comments", async (req, res) => {
       }
     });
 
-    if(comments.length === 0) return res.status(400).json({ error: "Not Found Comment"});
+    if(comments.length === 0) return res.status(404).json({ error: "Not Found Comment"});
 
     res.json(comments);
 
@@ -27,7 +27,7 @@ router.post("/:id/comments", async (req, res) => {
 
     const blog = await Blogs.findByPk(req.params.id);
 
-    if(!blog) return res.status(400).json({ error: "Not Found Blogs"});
+    if(!blog) return res.status(404).json({ error: "Not Found Blogs"});
 
     const newComment = await Comments.create({
       author_id,

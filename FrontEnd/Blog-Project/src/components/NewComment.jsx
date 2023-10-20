@@ -17,7 +17,7 @@ const NewComment = ({ commentData, setComment }) => {
     <>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-lg lg:text-2xl font-bold text-black">
-          Discussion (20)
+          Discussion ({commentData.length})
         </h2>
       </div>
       <form className="mb-6" onSubmit={submitComment}>
