@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
-const Comments = require('../comments/comments.model');
+const users = require('../auth/user.model');
 
 const Blogs = sequelize.define(
     'Blogs',{
@@ -8,7 +8,7 @@ const Blogs = sequelize.define(
             type: DataTypes.STRING
         },
         authorID:{
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
         author:{
             type: DataTypes.STRING
@@ -30,10 +30,10 @@ const Blogs = sequelize.define(
         }
     });
 
-    Blogs.hasMany(Comments, {
-        foreignKey: 'blogId',
-        sourceKey: 'id',
-        as: 'blogComments',
-      });
+    Blogs.belongsTo(users,{
+        foreignKey: 'authorID',
+        onDelete: 'CASCADE',
+        onUpdate: 'NO ACTION',
+    })
 
 module.exports = Blogs;

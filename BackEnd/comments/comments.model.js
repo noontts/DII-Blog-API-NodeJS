@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
+const Blogs = require('../blogs/blog.model');
 
 const Comments = sequelize.define(
     'Comments',{
@@ -22,5 +23,11 @@ const Comments = sequelize.define(
             allowNull: false,
         },
     });
+
+    Comments.belongsTo(Blogs,{
+        foreignKey: 'blogId',
+        onDelete: 'CASCADE',
+        onUpdate: 'NO ACTION',
+    })
 
 module.exports = Comments;

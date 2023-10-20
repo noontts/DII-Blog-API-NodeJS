@@ -1,6 +1,7 @@
 const express = require("express");
 const { Op } = require('sequelize');
 const Blogs = require('./blog.model');
+const users = require("../auth/user.model");
 const router = express.Router();
 
 router.get("/", async(req, res) => {
@@ -43,7 +44,14 @@ router.get("/", async(req, res) => {
 });
 
 router.post("/", async(req, res) => {
-  const { title, author, content, type, imageURL, category, authorID } = req.body;
+  const { title, content, type, imageURL, category, authorID } = req.body;
+
+  const user = await users.findByPk(authorID);
+
+  if(!user) return res.status(400).json({ message: "No matching user found"});
+
+  const author = user.dataValues.username;
+  
   const newBlog = await Blogs.create({
     date: new Date().toLocaleDateString(),
     authorID,
@@ -53,10 +61,10 @@ router.post("/", async(req, res) => {
     type,
     imageURL,
     category,
-    comments: [],
   });
 
   res.json(newBlog);
+  
 });
 
 module.exports = router;
