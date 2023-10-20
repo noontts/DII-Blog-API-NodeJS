@@ -51,7 +51,7 @@ const BlogDetail = () => {
               src={`http://localhost:3000/api/v1/blogs/images/${blogDetail.imageURL}`}
               loading="lazy"
             ></img>
-            <div className="p-3">{blogDetail.content}</div>
+            <div className="p-3 text-2xl mt-10">{blogDetail.content}</div>
           </div>
 
           <div className="mt-10 bg-white py-8 lg:py-16 antialiased">
