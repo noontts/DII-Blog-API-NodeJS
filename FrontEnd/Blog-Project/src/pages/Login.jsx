@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { login } from '../services/blogs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 
 const Login = () => {
@@ -99,9 +99,9 @@ const Login = () => {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Don't have an account?{' '}
-            <a href="Register" className="font-semibold leading-6 text-green-500 hover:text-green-600">
+            <Link to={"/Register"} className="font-semibold leading-6 text-green-500 hover:text-green-600">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
